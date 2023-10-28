@@ -18,3 +18,20 @@
 
 
 <?php
+/**
+ * Задание 1
+ *
+ */
+function getPhoneCodes()
+{
+    $url = "https://cdn.jsdelivr.net/gh/andr-04/inputmask-multi@master/data/phone-codes.json";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    return json_decode($response, true);
+}
