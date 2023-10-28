@@ -24,7 +24,10 @@
                 <button type="submit" name="checkPhone" class="btn btn-primary">Узнать страну</button>
             </form>
             <p>
-
+                <?php
+                if (isset($_POST["checkPhone"]) && $_POST["phone"]) {
+                    checkNumber($_POST["phone"]);
+                } ?>
             </p>
         </div>
     </div>
@@ -53,4 +56,39 @@ function getPhoneCodes()
     curl_close($ch);
 
     return json_decode($response, true);
+}
+
+function leaveOnlyNumbers($phone)
+{
+    return preg_replace("/[^0-9]/", "", $phone);
+}
+
+function check($number, $mask)
+{
+    if (strncmp($number, $mask, strlen($mask)) === 0) {
+        return true;
+    }
+
+    return false;
+}
+
+function checkNumber($number_phone)
+{
+    print "Номер телефона: " . $number_phone . "<br/>";
+
+    $number = leaveOnlyNumbers($number_phone);
+    $masks_phone = getPhoneCodes();
+
+    foreach ($masks_phone as $value) {
+        $mask = leaveOnlyNumbers($value["mask"]);
+
+        if (strpos($number, $mask) !== false) {
+
+            if (check($number, $mask)) {
+                echo $value["mask"], " ", $value["name_ru"];
+                return;
+            }
+        }
+    }
+
 }
