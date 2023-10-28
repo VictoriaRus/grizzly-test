@@ -9,7 +9,26 @@
     <title>Grizzly-Test</title>
 </head>
 <body>
-<h1>Hello, world!</h1>
+<div class="container pt-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12">
+            <h2 class="mb-2">Как узнать страну по коду?</h2>
+            <form method="post" class="mb-3">
+                <div class="row mb-3">
+                    <label for="phone" class="col-12 col-form-label">Номер мобильного телефона</label>
+                    <div class="col-lg-4">
+                        <input type="text" name="phone" placeholder="Введите номер телефона"
+                               class="form-control" id="phone">
+                    </div>
+                </div>
+                <button type="submit" name="checkPhone" class="btn btn-primary">Узнать страну</button>
+            </form>
+            <p>
+
+            </p>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
