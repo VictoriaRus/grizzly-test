@@ -7,6 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Grizzly-Test</title>
+    <style>
+        .modal-popup {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #DDDDDD;
+        }
+        @media screen and (max-width: 578px) {
+            .modal-popup {
+                position: relative;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="container pt-3">
@@ -29,6 +43,21 @@
                     checkNumber($_POST["phone"]);
                 } ?>
             </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-popup modal-popup--js p-4">
+    <div class="modal-popup__content row">
+        <div class="modal-popup__body col-xxl-10 mb-3">
+            При использовании данного сайта, вы подтверждаете свое согласие на использование файлов cookie в
+            соответствии с настоящим уведомлением в отношении данного типа файлов.
+        </div>
+        <div class="modal-popup__but col-xxl-2">
+            <form method="post">
+                <button type="button" class="btn btn-secondary btn-close--js">Закрыть</button>
+                <input type="submit" name="send-cookies" class="btn btn-success btn-ok--js" value="Принять"/>
+            </form>
         </div>
     </div>
 </div>
